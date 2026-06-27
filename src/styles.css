@@ -100,7 +100,6 @@ footer {
 .site-header nav button,
 .primary-button,
 .index-tools button,
-.poem-row button,
 .reader-nav button,
 .player-buttons button,
 .track,
@@ -118,7 +117,6 @@ footer {
 .site-header nav button:hover,
 .primary-button:hover,
 .index-tools button:hover,
-.poem-row button:hover,
 .reader-nav button:hover,
 .player-buttons button:hover,
 .track:hover,
@@ -304,10 +302,20 @@ p {
   gap: 18px;
   align-items: center;
   padding: 14px;
+  cursor: pointer;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: var(--shadow);
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.poem-row:hover,
+.poem-row:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 20px 52px rgba(72, 58, 42, 0.14);
+  transform: translateY(-1px);
+  outline: 0;
 }
 
 .poem-row img {
@@ -455,6 +463,14 @@ figcaption {
   flex-wrap: wrap;
 }
 
+.player-buttons {
+  flex-wrap: nowrap;
+}
+
+.player-buttons button {
+  min-width: 48px;
+}
+
 .progress-label {
   margin: 16px 0;
 }
@@ -586,6 +602,16 @@ footer {
     background: linear-gradient(180deg, rgba(255, 253, 248, 0.08), rgba(255, 253, 248, 0.68) 62%);
   }
 
+  .poem-page h1 {
+    position: sticky;
+    top: 68px;
+    z-index: 12;
+    margin: 0 -2px;
+    padding: 10px 2px 12px;
+    background: rgba(255, 253, 248, 0.92);
+    backdrop-filter: blur(14px);
+  }
+
   .book-layout {
     display: block;
   }
@@ -660,10 +686,6 @@ footer {
 
   .poem-row h2 {
     font-size: 1.35rem;
-  }
-
-  .poem-row button {
-    width: 100%;
   }
 
   .track {

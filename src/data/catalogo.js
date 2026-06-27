@@ -167,7 +167,7 @@ export const autore = {
   biografia:
     "Ha frequentato l'Istituto d'Arte di Castrovillari conseguendo il diploma di Maestro d'Arte. Ha svolto attività di docente prima al Liceo Scientifico e poi presso a Scuola Secondaria di Primo Grado di Amendolara, dove ha educato generazioni di studenti alla conoscenza dei beni culturali e all'amore del proprio paese, studiando con loro gli usi, i costumi, le tradizioni, le festività della comunità locale e sviluppando in essi la sensibilità verso il valore delle testimonianze culturali lasciate dagli avi. È autore di libri di diverse raccolte di testi di poesia e di narrativa. In numerose tele ha dipinto paesaggi e scorci della sua terra natale.",
   notaLibro:
-    "Il mio paese e un libro poetico multimediale che raccoglie versi, immagini e musiche legate ai luoghi della memoria, al paesaggio calabrese e al sentimento del ritorno."
+    "Il mio paese è un libro poetico multimediale che raccoglie versi, immagini e musiche legate ai luoghi della memoria, al paesaggio calabrese e al sentimento del ritorno."
 };
 
 export const copertina = {

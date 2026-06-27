@@ -176,11 +176,22 @@ function IndexPage({ currentId }) {
         </div>
         <div className="index-list">
           {filtered.map((poesia) => (
-            <article key={poesia.id} className="poem-row">
+            <article
+              key={poesia.id}
+              className="poem-row"
+              role="button"
+              tabIndex="0"
+              onClick={() => navigate(`/poesie/${poesia.id}`)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  navigate(`/poesie/${poesia.id}`);
+                }
+              }}
+            >
               <img src={mediaUrl(poesia.immagine)} alt={`Immagine per ${poesia.titolo}`} />
               <div>
                 <h2>{poesia.titolo}</h2>
-                <button onClick={() => navigate(`/poesie/${poesia.id}`)}>Apri poesia</button>
               </div>
             </article>
           ))}
@@ -279,13 +290,8 @@ function PlaylistPage() {
   const [playing, setPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.8);
   const audioRef = useRef(null);
   const track = tracks[current] || tracks[0];
-
-  useEffect(() => {
-    if (audioRef.current) audioRef.current.volume = volume;
-  }, [volume]);
 
   useEffect(() => {
     setProgress(0);
@@ -330,10 +336,10 @@ function PlaylistPage() {
             onEnded={nextTrack}
           />
           <div className="player-buttons">
-            <button onClick={previousTrack}>Brano precedente</button>
+            <button onClick={previousTrack} aria-label="Brano precedente">←</button>
             <button onClick={play}>Play</button>
             <button onClick={pause}>Pausa</button>
-            <button onClick={nextTrack}>Brano successivo</button>
+            <button onClick={nextTrack} aria-label="Brano successivo">→</button>
           </div>
           <label className="progress-label">
             <span>{formatTime(progress)}</span>
@@ -350,18 +356,6 @@ function PlaylistPage() {
               aria-label="Avanzamento del brano"
             />
             <span>{formatTime(duration)}</span>
-          </label>
-          <label className="volume-label">
-            Volume
-            <input
-              type="range"
-              min="0"
-              max="1"
-              step="0.01"
-              value={volume}
-              onChange={(event) => setVolume(Number(event.target.value))}
-              aria-label="Volume"
-            />
           </label>
         </div>
       </div>
